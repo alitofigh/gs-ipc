@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
+             version="2.1">
+    <persistence-unit name="main-persistence-unit" transaction-type="RESOURCE_LOCAL">
+        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+        <class>org.gsstation.novin.core.dao.domain.DailyTransactionRecord</class>
+        <class>org.gsstation.novin.core.dao.domain.CipherTransactionRecord</class>
+        <class>org.gsstation.novin.core.dao.domain.EmergencyReport</class>
+        <class>org.gsstation.novin.core.dao.domain.FuelQualityTestFromPt</class>
+        <class>org.gsstation.novin.core.dao.domain.FuelQuantityTestFromPt</class>
+        <class>org.gsstation.novin.core.dao.domain.ShiftTransactionRecord</class>
+        <class>org.gsstation.novin.core.dao.domain.TransactionRecord</class>
+        <class>org.gsstation.novin.core.dao.domain.TransactionReceiveLog</class>
+        <class>org.gsstation.novin.core.dao.domain.PtInfo</class>
+        <class>org.gsstation.novin.core.dao.domain.GsInfo</class>
+        <!--<properties>
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://192.168.163.8:3306/gsstation" />
+            <property name="javax.persistence.jdbc.user" value="gsUser" />
+            <property name="javax.persistence.jdbc.password" value="gs123456" />
+
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
+            <property name="hibernate.show_sql" value="true" />
+            <property name="hibernate.hbm2ddl.auto" value="create" />
+            <property name="eclipselink.target-database" value="mysql" />
+            <property name="eclipselink.connection-pool.default.initial" value="1"/>
+            <property name="eclipselink.connection-pool.default.min" value="5"/>
+            <property name="eclipselink.connection-pool.default.max" value="10"/>
+        </properties>-->
+    </persistence-unit>
+
+
+</persistence>

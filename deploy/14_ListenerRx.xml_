@@ -1,0 +1,28 @@
+<server name="listener-rx" class="org.jpos.q2.iso.QServer"
+        logger="main-logger">
+    <attr name="port" type="java.lang.Integer">14012</attr>
+    <attr name="minSessions" type="java.lang.Integer">1</attr>
+    <attr name="maxSessions" type="java.lang.Integer">50</attr>
+    <!--<property name="max-connection-lifetime" value="0" />
+    <property name="bind-address" value="192.168.50.168" />
+    <property name="backlog" value="0" />
+    <property name="allow" value="192.168.50.109" />-->
+    <channel class="org.jpos.iso.channel.ASCIIChannel"
+             packager="org.gsstation.novin.packager.GsPackager"
+             logger="main-logger">
+        <!-- in seconds -->
+        <!--<property name="timeout" value="10" />-->    <!-- Read timeout -->
+        <!--<property name="connect-timeout" value="5" />-->
+        <property name="message-log-format" value="stream"/>  <!-- {xml|stream} -->
+        <property name="debug" value="false"/>
+        <property name="dump-format"
+                  value="full"/>   <!-- {ascii|hex|bytes|full} -->
+    </channel>
+    <request-listener
+            class="org.gsstation.novin.core.module.ListenerTwoMux"
+            logger="main-logger">
+        <property name="financial-mux" value="terminal-mux"/>
+    </request-listener>
+    <!--<out>terminal-mux-queue</out>-->
+    <!--<in>listener-rx-queue</in>-->
+</server>

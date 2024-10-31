@@ -1,0 +1,5 @@
+<mux name="terminal-mux" class="org.jpos.q2.iso.QMUX" logger="main-logger">
+    <in>terminal-mux-queue</in>
+    <out>context-wrapper-queue</out>
+    <key>2,3,5</key>
+</mux>

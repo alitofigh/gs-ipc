@@ -1,0 +1,6 @@
+<qbean name="context-wrapper" class="org.gsstation.novin.core.module.ContextWrapper"
+       logger="main-logger">
+    <property name="input-queue" value="context-wrapper-queue"/>
+    <property name="output-queue" value="transaction-manager-queue"/>
+    <property name="original-message-key" value="original-message"/>
+</qbean>

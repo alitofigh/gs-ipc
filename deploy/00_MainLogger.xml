@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<logger name="main-logger" class="org.jpos.q2.qbean.LoggerAdaptor">
+    <log-listener class="org.jpos.util.ProtectedLogListener">
+        <property name="protect" value=""/>
+        <property name="wipe" value=""/>
+    </log-listener>
+
+    <log-listener class="org.jpos.util.DailyLogListener">
+        <property name="window" value="3600"/>
+        <property name="maxsize" value="209715200"/>
+        <property name="prefix"
+                  value="main-log/gs-log"/>
+        <property name="suffix" value=".log"/>
+        <property name="date-format" value="-yyyy.MM.dd-HH"/>
+        <property name="compression-format" value="gzip"/>
+        <property name="compression-buffer-size" value="2097152"/>
+    </log-listener>
+
+    <log-listener class="org.jpos.util.SimpleLogListener"/>
+
+    <!--<log-listener class="org.jpos.util.SysLogListener">
+        <property name="facility" value="21" />
+        <property name="severity" value="5" />
+        <property name="tags" value="audit, syslog" />
+        <property name="prefix" value="[sima2]" />
+    </log-listener>-->
+</logger>

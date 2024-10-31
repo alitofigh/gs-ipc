@@ -1,0 +1,3 @@
+<qbean name="key-management" class="org.gsstation.novin.core.module.KeyManagement"
+       logger="main-logger">
+</qbean>

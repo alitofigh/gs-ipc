@@ -1,0 +1,29 @@
+<txnmgr name="switch-brain" class="org.jpos.transaction.TransactionManager"
+        logger="main-logger">
+    <property name="space" value="tspace:default"/>
+    <property name="queue" value="transaction-manager-queue"/>
+    <property name="sessions" value="50"/>
+    <property name="debug" value="false"/>
+
+    <participant class="org.gsstation.novin.core.participants.TransactionGroupSelector"
+                 logger="main-logger">
+    </participant>
+
+    <group name="gs-info">
+        <participant class="org.gsstation.novin.core.participants.MacValidation" />
+        <participant class="org.gsstation.novin.core.participants.MessageDataValidation" />
+        <participant class="org.gsstation.novin.core.participants.KeyGeneration" />
+        <participant class="org.gsstation.novin.core.participants.ResponsePreparing" />
+        <!--<participant class="org.gsstation.novin.core.participants.MacUpdating" />-->
+        <participant class="org.gsstation.novin.core.participants.ResponseDelivery" />
+    </group>
+
+    <group name="ipc-transaction">
+        <participant class="org.gsstation.novin.core.participants.MacValidation" />
+        <participant class="org.gsstation.novin.core.participants.StoreData"/>
+        <participant class="org.gsstation.novin.core.participants.ResponsePreparing" />
+        <participant class="org.gsstation.novin.core.participants.ResponseDelivery" />
+    </group>
+    <group name="invalid-transaction">
+    </group>
+</txnmgr>

@@ -1,0 +1,33 @@
+<server name="terminal-rx" class="org.jpos.q2.iso.QServer"
+        logger="main-logger">
+    <attr name="port" type="java.lang.Integer">14011</attr>
+    <attr name="minSessions" type="java.lang.Integer">20</attr>
+    <attr name="maxSessions" type="java.lang.Integer">600</attr>
+    <!-- in seconds -->
+    <property name="max-connection-lifetime" value="60"/>
+    <property name="backlog" value="50"/>
+    <!--<property name="bind-address" value="192.168.50.168" />
+    <property name="allow" value="192.168.50.109" />-->
+    <channel class="org.jpos.iso.channel.ASCIIChannel"
+             packager="org.gsstation.novin.packager.GsPackager"
+             logger="main-logger">
+        <!-- in seconds -->
+        <property name="timeout" value="35000"/>
+        <!-- Read timeout -->
+        <!--<property name="connect-timeout" value="5" />-->
+        <property name="message-log-format" value="stream"/>
+        <!-- {xml|stream} -->
+        <property name="debug" value="false"/>
+        <property name="dump-format" value="hex"/>
+        <!-- {ascii|hex|bytes|full} -->
+    </channel>
+    <request-listener
+            class="org.gsstation.novin.core.processor.ContextWrapperProcessor"
+            logger="main-logger">
+        <property name="output-queue" value="transaction-manager-queue"/>
+        <context-additional-data>
+            <property name="source" value="socket"/>
+        </context-additional-data>
+    </request-listener>
+    <in>terminal-rx-queue</in>
+</server>
